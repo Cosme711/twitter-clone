@@ -1,5 +1,3 @@
 <template>
-  <div>
-    <NuxtWelcome />
-  </div>
+  <p class="text-4xl">Twitter Clone</p>
 </template>
