@@ -2,5 +2,5 @@
 export default defineNuxtConfig({
   title: "Twitter Clone",
 
-  modules: ["@nuxtjs/tailwindcss"],
+  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt"],
 });
