@@ -12,7 +12,22 @@ module.exports = {
     "error.{js,ts,vue}",
   ],
   theme: {
-    extend: {},
+    colors: {
+      blue: {
+        light: "#2D9CDB",
+        DEFAULT: "#2F80ED",
+      },
+      gray: {
+        background: "#F2F2F2",
+        white: "#BDBDBD",
+        light: "#828282",
+        dark: "#4F4F4F",
+        DEFAULT: "#333333",
+      },
+      red: "#EB5757",
+      green: "#27AE60",
+      transparent: "transparent",
+    },
   },
   plugins: [],
 };
