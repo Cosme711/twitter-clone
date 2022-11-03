@@ -15,6 +15,10 @@ const registerPassword: Ref<string> = ref("");
 
 const connectEmail: Ref<string> = ref("");
 const connectPassword: Ref<string> = ref("");
+
+onMounted(() => {
+  userStore.checkIfAlreadyConnect();
+});
 </script>
 
 <template>

@@ -1,8 +1,7 @@
 import {
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
-  updateProfile,
-  getAuth,
 } from "firebase/auth";
 import { setDoc, doc, getDoc } from "firebase/firestore";
 import { defineStore } from "pinia";
@@ -14,6 +13,18 @@ export const useUserStore = defineStore({
     user: null as IUser | null,
   }),
   actions: {
+    checkIfAlreadyConnect() {
+      const { $firebaseAuth } = useNuxtApp();
+
+      onAuthStateChanged($firebaseAuth, (user) => {
+        if (user) {
+          this.getFromDatabase(user.uid);
+          this.redirectToHomepage();
+        } else {
+          console.log("connect please");
+        }
+      });
+    },
     async register(user: IUser, password: string) {
       try {
         const { $firebaseAuth, $firebaseDb } = useNuxtApp();
@@ -34,18 +45,30 @@ export const useUserStore = defineStore({
     },
     async login(email: string, password: string) {
       try {
-        const { $firebaseAuth, $firebaseDb } = useNuxtApp();
+        const { $firebaseAuth } = useNuxtApp();
         const response = await signInWithEmailAndPassword(
           $firebaseAuth,
           email,
           password
         );
-        const docRef = doc($firebaseDb, "users", response.user.uid);
-        const docSnap = await getDoc(docRef);
-        this.user = docSnap.data();
+        this.getFromDatabase(response.user.uid);
+        this.redirectToHomepage();
       } catch (e) {
         console.log(e);
       }
+    },
+    getFromDatabase(uid: string) {
+      const { $firebaseDb } = useNuxtApp();
+
+      const docRef = doc($firebaseDb, "users", uid);
+      getDoc(docRef).then((docSnap) => {
+        this.user = docSnap.data();
+        this.redirectToHomepage();
+      });
+    },
+    redirectToHomepage() {
+      const router = useRouter();
+      router.push("/");
     },
   },
   getters: {
