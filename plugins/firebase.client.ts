@@ -2,11 +2,13 @@ import { defineNuxtPlugin } from "#app";
 
 import { FirebaseApp, initializeApp } from "firebase/app";
 import { Auth, getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 declare module "#app" {
   interface NuxtApp {
     $firebaseApp: FirebaseApp;
     $firebaseAuth: Auth;
+    $firebaseDb: any;
   }
 }
 export default defineNuxtPlugin((nuxtApp) => {
@@ -26,4 +28,5 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   nuxtApp.provide("firebaseApp", app);
   nuxtApp.provide("firebaseAuth", getAuth(app));
+  nuxtApp.provide("firebaseDb", getFirestore(app));
 });

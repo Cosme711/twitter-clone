@@ -1,24 +1,50 @@
 <script lang="ts" setup>
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { ref } from "vue";
+import type { Ref } from "vue";
 import { useUserStore } from "~~/store/user";
+import { IUser } from "@/store/types";
 
 const userStore = useUserStore();
-const login = async () => {
-  const { $firebaseAuth } = useNuxtApp();
 
-  const router = useRouter();
-  try {
-    await signInWithEmailAndPassword($firebaseAuth, "test@test.com", "123456");
-    userStore.user = {
-      name: "Cosme Gressier",
-    };
-    router.push("/");
-  } catch (e) {
-    console.log(e);
-  }
-};
+const registerUser: IUser = reactive({
+  email: "",
+  firstName: "",
+  lastName: "",
+});
+const registerPassword: Ref<string> = ref("");
+
+const connectEmail: Ref<string> = ref("");
+const connectPassword: Ref<string> = ref("");
 </script>
 
 <template>
-  <p class="cursor-pointer" @click="login">Login</p>
+  <div>
+    <input v-model="registerUser.email" type="email" placeholder="email" />
+    <input
+      v-model="registerUser.firstName"
+      type="text"
+      placeholder="first name"
+    />
+    <input
+      v-model="registerUser.lastName"
+      type="text"
+      placeholder="last name"
+    />
+    <input v-model="registerPassword" type="text" placeholder="password" />
+    <p
+      class="cursor-pointer mt-2"
+      @click="userStore.register(registerUser, registerPassword)"
+    >
+      Register
+    </p>
+
+    <input v-model="connectEmail" type="email" placeholder="email" />
+    <input v-model="connectPassword" type="password" placeholder="password" />
+    <p
+      class="cursor-pointer mt-20"
+      @click="userStore.login(connectEmail, connectPassword)"
+    >
+      Login
+    </p>
+  </div>
 </template>
