@@ -9,6 +9,6 @@ import { useUserStore } from "~/store/user";
       alt="Fake Profile Picture"
       class="rounded-lg w-7 h-7"
     />
-    <p>{{ useUserStore().user.name }}</p>
+    <p>{{ useUserStore().user.displayName }}</p>
   </div>
 </template>
