@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+import { useUserStore } from "~/store/user";
+</script>
+
 <template>
   <div class="flex items-center space-x-3 font-medium text-sm">
     <img
@@ -5,6 +9,6 @@
       alt="Fake Profile Picture"
       class="rounded-lg w-7 h-7"
     />
-    <p>Xanthe Neal</p>
+    <p>{{ useUserStore().user.name }}</p>
   </div>
 </template>
