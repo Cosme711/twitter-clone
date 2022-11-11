@@ -3,6 +3,9 @@ export interface IUser {
   firstName: string;
   lastName: string;
   displayName: string;
+  pictureProfileUrl: string;
+  pictureProfileUrlSmall: string;
+  banner: string;
 }
 
 export interface IRegisterUserInfo {

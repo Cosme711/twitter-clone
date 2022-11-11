@@ -3,6 +3,7 @@ import { defineNuxtPlugin } from "#app";
 import { FirebaseApp, initializeApp } from "firebase/app";
 import { Auth, getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 declare module "#app" {
   interface NuxtApp {
@@ -29,4 +30,5 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.provide("firebaseApp", app);
   nuxtApp.provide("firebaseAuth", getAuth(app));
   nuxtApp.provide("firebaseDb", getFirestore(app));
+  nuxtApp.provide("firebaseStorage", getStorage(app));
 });
