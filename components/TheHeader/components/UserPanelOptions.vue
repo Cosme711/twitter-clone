@@ -1,3 +1,18 @@
+<script lang="ts" setup>
+import { signOut } from "@firebase/auth";
+
+const logout = async () => {
+  try {
+    const { $firebaseAuth } = useNuxtApp();
+    await signOut($firebaseAuth);
+    const router = useRouter();
+    router.push("/login");
+  } catch (e) {
+    console.log(e);
+  }
+};
+</script>
+
 <template>
   <div
     class="absolute border border-gray-border rounded-2xl top-12 right-0 px-4 py-6 w-60"
@@ -30,6 +45,7 @@
     </div>
     <div
       class="text-red font-medium space-x-2 flex items-center mt-6 p-2 cursor-pointer"
+      @click="logout"
     >
       <BaseIconBase name="Logout" size="w-7 h-7" class="ml-1">
         <AssetsIconsLogoutIcon />

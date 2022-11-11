@@ -6,7 +6,7 @@ const optionsIsOpen: Ref<boolean> = ref(false);
 </script>
 
 <template>
-  <div class="relative">
+  <div class="relative select-none">
     <div
       class="flex items-center font-medium text-sm cursor-pointer"
       @click="optionsIsOpen = !optionsIsOpen"
@@ -16,7 +16,7 @@ const optionsIsOpen: Ref<boolean> = ref(false);
         alt="Fake Profile Picture"
         class="rounded-lg w-7 h-7"
       />
-      <p class="ml-3 select-none">{{ useUserStore().user.displayName }}</p>
+      <p class="ml-3">{{ useUserStore().user.displayName }}</p>
       <BaseIconBase
         name="Arrow Dropdown"
         size="w-7 h-7"
