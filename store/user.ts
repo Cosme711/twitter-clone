@@ -5,7 +5,7 @@ import {
 } from "firebase/auth";
 import { setDoc, doc, getDoc } from "firebase/firestore";
 import { defineStore } from "pinia";
-import { IUser } from "./types";
+import { IRegisterUserInfo, IUser } from "./types";
 
 export const useUserStore = defineStore({
   id: "userStore",
@@ -25,7 +25,7 @@ export const useUserStore = defineStore({
         }
       });
     },
-    async register(user: IUser, password: string) {
+    async register(user: IRegisterUserInfo, password: string) {
       try {
         const { $firebaseAuth, $firebaseDb } = useNuxtApp();
         const response = await createUserWithEmailAndPassword(
