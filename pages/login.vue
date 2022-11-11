@@ -2,11 +2,11 @@
 import { ref } from "vue";
 import type { Ref } from "vue";
 import { useUserStore } from "~~/store/user";
-import { IUser } from "@/store/types";
+import { IRegisterUserInfo } from "@/store/types";
 
 const userStore = useUserStore();
 
-const registerUser: IUser = reactive({
+const registerUser: IRegisterUserInfo = reactive({
   email: "",
   firstName: "",
   lastName: "",
