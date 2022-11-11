@@ -4,6 +4,10 @@ import type { Ref } from "vue";
 import { useUserStore } from "~~/store/user";
 import { IRegisterUserInfo } from "@/store/types";
 
+definePageMeta({
+  layout: false,
+});
+
 const userStore = useUserStore();
 
 const registerUser: IRegisterUserInfo = reactive({
