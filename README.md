@@ -1,42 +1,18 @@
-# Nuxt 3 Minimal Starter
+<h1 align="center">Twitter Clone - Cosme Gressier</h1>
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+<div align="center">
+  <h3>
+    <a href="https://devchallenges.io/challenges/rleoQc34THclWx1cFFKH">
+      Challenge
+    </a>
+  </h3>
+</div>
 
-## Setup
+### Built With
 
-Make sure to install the dependencies:
+- [Nuxt 3](https://v3.nuxtjs.org)
+- [Tailwindcss](https://tailwindcss.com/)
 
-```bash
-# yarn
-yarn install
+## Contact
 
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
+- Portfolio [Cosme Gressier](https://www.cosme-gressier.fr)
