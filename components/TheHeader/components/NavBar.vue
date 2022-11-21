@@ -5,9 +5,9 @@
       :key="route"
       class="cursor-pointer flex items-center border-b-2"
       :class="
-        routeSelected === route ? 'text-blue border-blue' : 'border-transparent'
+        routeName === route ? 'text-blue border-blue' : 'border-transparent'
       "
-      @click="routeSelected = route"
+      @click="goTo(route)"
     >
       <p>{{ route }}</p>
     </div>
@@ -15,9 +15,22 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
-import type { Ref } from "vue";
 import { ERouteName } from "../types";
 
-const routeSelected: Ref<ERouteName> = ref(ERouteName.HOME);
+const router = useRouter();
+
+const routeData = useRoute();
+const routeName = computed(() => {
+  return routeData.meta.name;
+});
+
+const goTo = (name) => {
+  if (name === ERouteName.HOME) {
+    router.push("/");
+  } else if (name === ERouteName.PROFILE) {
+    router.push("/profile");
+  } else {
+    router.push("/");
+  }
+};
 </script>

@@ -12,7 +12,7 @@ const optionsIsOpen: Ref<boolean> = ref(false);
       @click="optionsIsOpen = !optionsIsOpen"
     >
       <img
-        src="../assets/fake_profile_picture.jpg"
+        :src="useUserStore().user.pictureProfileUrl"
         alt="Fake Profile Picture"
         class="rounded-lg w-7 h-7"
       />

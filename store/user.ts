@@ -20,8 +20,6 @@ export const useUserStore = defineStore({
         if (user) {
           this.getFromDatabase(user.uid);
           this.redirectToHomepage();
-        } else {
-          console.log("connect please");
         }
       });
     },

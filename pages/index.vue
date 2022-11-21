@@ -1,9 +1,10 @@
 <script setup lang="ts">
 definePageMeta({
+  name: "Home",
   middleware: "auth",
 });
 </script>
 
 <template>
-  <TheHeader />
+  <p>Home</p>
 </template>

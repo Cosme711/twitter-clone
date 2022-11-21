@@ -3,6 +3,8 @@ export interface IUser {
   firstName: string;
   lastName: string;
   displayName: string;
+  pictureProfileUrl: string;
+  banner: string;
 }
 
 export interface IRegisterUserInfo {
