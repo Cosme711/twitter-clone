@@ -4,7 +4,6 @@ export interface IUser {
   lastName: string;
   displayName: string;
   pictureProfileUrl: string;
-  pictureProfileUrlSmall: string;
   banner: string;
 }
 

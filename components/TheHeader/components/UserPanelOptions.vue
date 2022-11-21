@@ -15,7 +15,7 @@ const logout = async () => {
 
 <template>
   <div
-    class="absolute border border-gray-border rounded-2xl top-12 right-0 px-4 py-6 w-60"
+    class="absolute border border-gray-border rounded-2xl top-12 right-0 px-4 py-6 w-60 bg-white"
   >
     <div class="space-y-4 pb-6 border-b-2 border-gray-border text-gray-dark">
       <div

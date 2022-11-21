@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useUserStore } from "~/store/user";
+
 definePageMeta({
   name: "Profile",
   middleware: "auth",
@@ -6,5 +8,5 @@ definePageMeta({
 </script>
 
 <template>
-  <p>Profile</p>
+  <img :src="useUserStore().user.banner" alt="Profile Banner" />
 </template>
